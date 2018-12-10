@@ -75,8 +75,8 @@ RUN adduser --quiet --disabled-password ${USER} --shell /bin/zsh \
       && mkdir -p /home/${USER}/.ssh/ \
       && mkdir -p /home/${USER}/.config/htop \
       && chown -R ${USER}:${USER} /home/${USER} \
-      && chmod 700 /home/${USER}/.ssh \
-      && chmod 600 /home/${USER}/.ssh/authorized_keys \
+      # && chmod 700 /home/${USER}/.ssh \
+      # && chmod 600 /home/${USER}/.ssh/authorized_keys \
       && echo '%devbox   ALL= NOPASSWD: ALL' >> /etc/sudoers \
       && sudo -u ${USER} sh -c 'cd /home/${USER} ; wget http://install.ohmyz.sh -O - | sh || true'
 
