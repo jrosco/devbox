@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+#/usr/local/bin/wrapdocker
+#/usr/sbin/sshd -D 
+
+# Set hostname
+echo "devbox" > /etc/hostname
+hostname devbox
+
+# Check if .dotfiles exist
+if [ -d $HOME/.dotfiles ]; then
+    "Installing dotfiles for $(cat /etc/hostname)"
+    ~/.dotfiles/dotdrop.sh install --profile=$(cat /etc/hostname)
+fi
+
+# Run bash so we have something running
+bash

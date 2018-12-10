@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# cd ~/.dotfiles/
+
+# git submodule add https://github.com/deadc0de6/dotdrop.git
+# git submodule init
+# git submodule update
+
+# ./dotdrop/bootstrap.sh
+# sudo pip3 install -r dotdrop/requirements.txt
+
+# # powerline font patch - https://github.com/powerline/fonts
+# # clone
+# git clone https://github.com/powerline/fonts.git --depth=1
+# # install
+# cd fonts
+# ./install.sh
+# # clean-up a bit
+# cd ..
+# rm -rf fonts
+# fc-cache -vf
+
+# wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+# wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+# mkdir -p ~/.local/share/fonts/
+# mv PowerlineSymbols.otf ~/.local/share/fonts/
+
+# fc-cache -vf ~/.local/share/fonts/
+
+# mkdir -p ~/.config/fontconfig/conf.d/
+# mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+# # Option 2 
+# sudo pip install git+git://github.com/Lokaltog/powerline
+# wget https://github.com/Lokaltog/powerline/raw/develop/font/PowerlineSymbols.otf https://github.com/Lokaltog/powerline/raw/develop/font/10-powerline-symbols.conf
+# sudo mv PowerlineSymbols.otf /usr/share/fonts/
+# sudo fc-cache -vf
+# sudo mv 10-powerline-symbols.conf /etc/fonts/conf.d/
+
+sh
