@@ -74,7 +74,6 @@ RUN sed -i 's/# \(en_US.UTF-8.*\)/\1/' /etc/locale.gen \
 RUN adduser --quiet --disabled-password ${USER} --shell /bin/zsh \
       && mkdir -p /home/${USER}/.ssh/ \
       && mkdir -p /home/${USER}/.config/htop \
-      # && wget https://github.com/jrosco.keys -O /home/${USER}/.ssh/authorized_keys \
       && chown -R ${USER}:${USER} /home/${USER} \
       && chmod 700 /home/${USER}/.ssh \
       && chmod 600 /home/${USER}/.ssh/authorized_keys \
