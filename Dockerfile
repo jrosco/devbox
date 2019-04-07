@@ -61,7 +61,7 @@ RUN set -ex \
       sh source /home/${USER}/.rvm/scripts/rvm
 
 # Golang setup
-ENV GO_VERSION go1.11.2
+ENV GO_VERSION go1.11.5
 RUN wget https://dl.google.com/go/${GO_VERSION}.linux-amd64.tar.gz \
       && sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-amd64.tar.gz \
       && rm ${GO_VERSION}.linux-amd64.tar.gz \
