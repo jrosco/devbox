@@ -9,6 +9,8 @@ DOCKER_DIR ?= /opt
 HOST_HOME = $(shell echo $$HOME)
 DOTFILES_DIR = $(HOST_HOME)/.dotfiles
 DOCKER_HOME ?= /home/$(LOGIN_AS)
+DOT_AWS=$(HOST_HOME)/.aws
+DOT_SSH=$(HOST_HOME)/.ssh
 
 .DEFAULT_GOAL := all
 
@@ -17,7 +19,9 @@ run:
 		--mount type=bind,source=$(DOTFILES_DIR),target=$(DOCKER_HOME)/.dotfiles \
 		--mount type=bind,source=$(HOST_HOME),target=$(DOCKER_HOME)/host \
 		--mount type=bind,source=$(LOCAL_DIR),target=$(DOCKER_DIR) \
-		$(DOCKER_NAME):$(DOCKER_TAG)
+    --mount type=bind,source=$(DOT_AWS),target=$(DOCKER_HOME)/.aws \
+    --mount type=bind,source=$(DOT_SSH),target=$(DOCKER_HOME)/.ssh \
+	  $(DOCKER_NAME):$(DOCKER_TAG)
 
 build:
 	docker $@ -t $(DOCKER_NAME):$(DOCKER_TAG) .
