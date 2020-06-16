@@ -60,6 +60,13 @@ RUN sudo curl -sSL https://get.rvm.io | bash
 RUN set -ex \
       sh source /home/${USER}/.rvm/scripts/rvm
 
+#Kubectl
+RUN curl -LO \
+    https://storage.googleapis.com/kubernetes-release/release/`curl \
+    -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl \
+    && chmod +x ./kubectl \
+    && mv ./kubectl /usr/local/bin/kubectl
+
 # Golang setup
 ENV GO_VERSION go1.11.5
 RUN wget https://dl.google.com/go/${GO_VERSION}.linux-amd64.tar.gz \
